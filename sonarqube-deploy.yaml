@@ -44,11 +44,11 @@ spec:
           env:
           - name: sonar.search.javaAdditionalOpts
             value: -Dnode.store.allow_mmap=false
-          - name: "SONARQUBE_JDBC_USERNAME"
+          - name: "SONAR_JDBC_USERNAME"
             value: "sonarqube"  #Put your db username
-          - name: "SONARQUBE_JDBC_URL"
+          - name: "SONAR_JDBC_URL"
             value: "jdbc:postgresql://sonarqube-db:5432/sonarqube" #DB URL
-          - name: "SONARQUBE_JDBC_PASSWORD"
+          - name: "SONAR_JDBC_PASSWORD"
             value: "sonarqube"
             # valueFrom:
             #   secretKeyRef:
