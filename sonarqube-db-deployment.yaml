@@ -36,7 +36,7 @@ spec:
           name: sonarqube-db
           env:
             - name: POSTGRES_DB
-              value: sonarqube
+              value: "sonarqube"
             - name: POSTGRES_PASSWORD
               value: "sonarqube"
               # valueFrom:
