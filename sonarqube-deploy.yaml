@@ -27,17 +27,13 @@ spec:
       containers:
         - name: sonarqube
           image: sonarqube:8.7.0-community
-          command:
-          - sysctl
-          - -w
-          - vm.max_map_count=262144
-          resources:
-            requests:
-              memory: "2G"
-              cpu: 2
-            limits:
-              memory: "4G"
-              cpu: 4
+          # resources:
+          #   requests:
+          #     memory: "2G"
+          #     cpu: 2
+          #   limits:
+          #     memory: "4G"
+          #     cpu: 4
           volumeMounts:
           - mountPath: "/opt/sonarqube/data/"
             name: sonar-data
