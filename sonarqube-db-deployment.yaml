@@ -35,6 +35,8 @@ spec:
               cpu: 4
           name: sonarqube-db
           env:
+            - name: POSTGRES_DB
+              value: sonarqube
             - name: POSTGRES_PASSWORD
               value: "sonarqube"
               # valueFrom:
@@ -43,6 +45,8 @@ spec:
               #     key: password
             - name: POSTGRES_USER
               value: "sonarqube"
+            - name: PGDATA
+              value: /var/lib/postgresql/data/sonarqube
           ports:
             - containerPort: 5432
               name: postgresport
