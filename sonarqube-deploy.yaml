@@ -20,13 +20,13 @@ spec:
       tolerations:
       - key: node.kubernetes.io/not-ready
         effect: NoExecute
-        tolerationSeconds: 60
+        tolerationSeconds: 240
       - key: node.kubernetes.io/unreachable
         effect: NoExecute
-        tolerationSeconds: 60
+        tolerationSeconds: 240
       containers:
         - name: sonarqube
-          image: sonarqube:latest
+          image: sonarqube:8.7.0-community
           resources:
             requests:
               memory: "2G"
