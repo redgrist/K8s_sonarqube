@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: sonarqube
+  name: sonarqube-db
+  namespace: sonarqube
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: sonarqube
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        run: sonarqube
+    spec:
+      tolerations:
+      - key: node.kubernetes.io/not-ready
+        effect: NoExecute
+        tolerationSeconds: 60
+      - key: node.kubernetes.io/unreachable
+        effect: NoExecute
+        tolerationSeconds: 60
+      containers:
+        - image: postgres:10
+          resources:
+            requests:
+              memory: "2G"
+              cpu: 2
+            limits:
+              memory: "4G"
+              cpu: 4
+          name: sonarqube-db
+          env:
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: sonarqube-db-secret
+                  key: password
+            - name: POSTGRES_USER
+              value: sonar
+          ports:
+            - containerPort: 5432
+              name: postgresport
+          volumeMounts:
+            - name: data-disk
+              mountPath: /var/lib/postgresql/data
+      volumes:
+        - name: data-disk
+          persistentVolumeClaim:
+            claimName: sonarqube-db

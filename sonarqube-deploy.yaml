@@ -1,0 +1,61 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: sonarqube
+  name: sonarqube
+  namespace: sonarqube
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: sonarqube
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        run: sonarqube
+    spec:
+      tolerations:
+      - key: node.kubernetes.io/not-ready
+        effect: NoExecute
+        tolerationSeconds: 60
+      - key: node.kubernetes.io/unreachable
+        effect: NoExecute
+        tolerationSeconds: 60
+      containers:
+        - name: sonarqube
+          image: sonarqube:latest
+          resources:
+            requests:
+              memory: "2G"
+              cpu: 2
+            limits:
+              memory: "4G"
+              cpu: 4
+          volumeMounts:
+          - mountPath: "/opt/sonarqube/data/"
+            name: sonar-data
+          - mountPath: "/opt/sonarqube/extensions/"
+            name: sonar-extensions
+          env:
+          - name: "SONARQUBE_JDBC_USERNAME"
+            value: "sonarqube"  #Put your db username
+          - name: "SONARQUBE_JDBC_URL"
+            value: "jdbc:postgresql://sonarqube-db:5432/sonarqube" #DB URL
+          - name: "SONARQUBE_JDBC_PASSWORD"
+            valueFrom:
+              secretKeyRef:
+                name: sonarqube-db-secret
+                key: password
+          ports:
+          - containerPort: 9000
+            protocol: TCP
+      volumes:
+      - name: sonar-data
+        persistentVolumeClaim:
+          claimName: sonarqube-data
+      - name: sonar-extensions
+        persistentVolumeClaim:
+          claimName: sonarqube-extensions
