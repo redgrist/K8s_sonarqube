@@ -47,7 +47,7 @@ spec:
           - name: "SONAR_JDBC_USERNAME"
             value: "sonar"  #Put your db username
           - name: "SONAR_JDBC_URL"
-            value: "jdbc:postgresql://sonarqube-db:5432/sonar" #DB URL
+            value: "jdbc:postgresql://sonarqube-db:5432" #DB URL
           - name: "SONAR_JDBC_PASSWORD"
             value: "sonar"
             # valueFrom:
