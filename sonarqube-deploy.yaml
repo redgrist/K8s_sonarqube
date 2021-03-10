@@ -6,6 +6,8 @@ metadata:
   name: sonarqube
   namespace: sonarqube
 spec:
+  securityContext:
+    fsGroup: 999
   replicas: 1
   selector:
     matchLabels:
@@ -27,13 +29,13 @@ spec:
       containers:
         - name: sonarqube
           image: sonarqube:8.7.0-community
-          # resources:
-          #   requests:
-          #     memory: "2G"
-          #     cpu: 2
-          #   limits:
-          #     memory: "4G"
-          #     cpu: 4
+          resources:
+            requests:
+              memory: "2G"
+              cpu: 2
+            limits:
+              memory: "4G"
+              cpu: 4
           volumeMounts:
           - mountPath: "/opt/sonarqube/data/"
             name: sonar-data
