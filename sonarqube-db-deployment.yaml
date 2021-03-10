@@ -41,7 +41,7 @@ spec:
                   name: sonarqube-db-secret
                   key: password
             - name: POSTGRES_USER
-              value: sonar
+              value: sonarqube
           ports:
             - containerPort: 5432
               name: postgresport
