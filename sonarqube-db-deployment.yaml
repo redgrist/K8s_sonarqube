@@ -36,17 +36,17 @@ spec:
           name: sonarqube-db
           env:
             - name: POSTGRES_DB
-              value: "sonarqube"
+              value: "sonar"
             - name: POSTGRES_PASSWORD
-              value: "sonarqube"
+              value: "sonar"
               # valueFrom:
               #   secretKeyRef:
               #     name: sonarqube-db-secret
               #     key: password
             - name: POSTGRES_USER
-              value: "sonarqube"
+              value: "sonar"
             - name: PGDATA
-              value: /var/lib/postgresql/data/sonarqube
+              value: /var/lib/postgresql/data/sonar
             - name: POSTGRES_HOST_AUTH_METHOD
               value: "trust"  #password The method password sends the password in clear-text and is therefore vulnerable to password “sniffing” attacks
           ports:
