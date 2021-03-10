@@ -43,7 +43,7 @@ spec:
             name: sonar-extensions
           env:
           - name: sonar.search.javaAdditionalOpts
-            value: -Dnode.store.allow_mmapfs=false
+            value: -Dnode.store.allow_mmap=false
           - name: "SONARQUBE_JDBC_USERNAME"
             value: "sonarqube"  #Put your db username
           - name: "SONARQUBE_JDBC_URL"
