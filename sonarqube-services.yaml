@@ -37,6 +37,6 @@ metadata:
 spec:
   ports:
   - name: port-db
-    port: 5433
+    port: 5432
     protocol: TCP
-    targetPort: 5433
+    targetPort: 5432
