@@ -49,10 +49,11 @@ spec:
           - name: "SONARQUBE_JDBC_URL"
             value: "jdbc:postgresql://sonarqube-db:5432/sonarqube" #DB URL
           - name: "SONARQUBE_JDBC_PASSWORD"
-            valueFrom:
-              secretKeyRef:
-                name: sonarqube-db-secret
-                key: password
+            value: "sonarqube"
+            # valueFrom:
+            #   secretKeyRef:
+            #     name: sonarqube-db-secret
+            #     key: password
           ports:
           - containerPort: 9000
             protocol: TCP

@@ -36,12 +36,13 @@ spec:
           name: sonarqube-db
           env:
             - name: POSTGRES_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: sonarqube-db-secret
-                  key: password
+              value: "sonarqube"
+              # valueFrom:
+              #   secretKeyRef:
+              #     name: sonarqube-db-secret
+              #     key: password
             - name: POSTGRES_USER
-              value: sonarqube
+              value: "sonarqube"
           ports:
             - containerPort: 5432
               name: postgresport
