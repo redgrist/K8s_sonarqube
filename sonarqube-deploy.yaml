@@ -9,13 +9,13 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      run: sonarqube
+      app: sonarqube
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        run: sonarqube
+        app: sonarqube
     spec:
       tolerations:
       - key: node.kubernetes.io/not-ready
