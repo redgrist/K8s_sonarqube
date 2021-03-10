@@ -6,8 +6,6 @@ metadata:
   name: sonarqube
   namespace: sonarqube
 spec:
-  securityContext:
-    fsGroup: 999
   replicas: 1
   selector:
     matchLabels:
@@ -26,6 +24,8 @@ spec:
       - key: node.kubernetes.io/unreachable
         effect: NoExecute
         tolerationSeconds: 240
+      securityContext:
+        fsGroup: 999
       containers:
         - name: sonarqube
           image: sonarqube:8.7.0-community
