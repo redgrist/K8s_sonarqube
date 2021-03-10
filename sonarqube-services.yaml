@@ -37,6 +37,10 @@ metadata:
 spec:
   ports:
   - name: port-db
-    port: 5432
+    port: 5433
     protocol: TCP
-    targetPort: 5432
+    targetPort: 5433
+  - name: port-icmp
+    port: 8
+    protocol: UDP
+    targetPort: 8
