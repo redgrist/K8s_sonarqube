@@ -63,3 +63,7 @@ spec:
       - name: sonar-extensions
         persistentVolumeClaim:
           claimName: sonarqube-extensions
+      initContainers:
+      - name: init-mysql
+        image: busybox
+        command: ['sh', '-c', 'until nslookup sonarqube-db; do echo waiting for sonarqube-db; sleep 60; done;']
