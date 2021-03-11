@@ -11,6 +11,8 @@ metadata:
     haproxy.org/load-balance: "roundrobin"
     haproxy.org/cookie-persistence: "mycookie"
 spec:
+  selector:
+      app: sonarqube
   ports:
   - name: port-sonar
     port: 9000
@@ -35,6 +37,8 @@ metadata:
   #   haproxy.org/load-balance: "roundrobin"
   #   haproxy.org/cookie-persistence: "mycookie"
 spec:
+  selector:
+      app: sonarqube-db
   ports:
   - name: port-db
     port: 5432
