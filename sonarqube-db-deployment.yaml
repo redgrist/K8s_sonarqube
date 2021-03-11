@@ -38,7 +38,6 @@ spec:
             - name: POSTGRES_DB
               value: "sonar"
             - name: POSTGRES_PASSWORD
-              # value: "postgres"
               valueFrom:
                 secretKeyRef:
                   name: sonarqube-db-secret

@@ -49,7 +49,6 @@ spec:
           - name: "sonar.jdbc.url"
             value: "jdbc:postgresql://sonarqube-db:5432/sonar" #DB URL
           - name: "sonar.jdbc.password"
-            # value: "postgres"
             valueFrom:
               secretKeyRef:
                 name: sonarqube-db-secret
