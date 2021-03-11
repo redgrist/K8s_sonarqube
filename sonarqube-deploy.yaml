@@ -29,7 +29,6 @@ spec:
       containers:
         - name: sonarqube
           image: sonarqube:8.7.0-community
-          command: ['sh', '-c', 'echo app running, waiting for db start 60s && sleep 60']
           resources:
             requests:
               memory: "2G"
