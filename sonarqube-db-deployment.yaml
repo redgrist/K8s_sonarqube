@@ -25,7 +25,7 @@ spec:
         effect: NoExecute
         tolerationSeconds: 60
       containers:
-        - image: postgres:8.7.0-community
+        - image: postgres:11.7
           resources:
             requests:
               memory: "2G"
