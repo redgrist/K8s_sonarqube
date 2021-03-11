@@ -67,7 +67,7 @@ spec:
       - name: init-postgres
         image: busybox
         command: ['sh', '-c', "until nslookup sonarqube-db.$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace).svc.cluster.local; sleep 2; done"]
-      - name: init-postgres
+      - name: init-postgres-sleep
         image: busybox
         command: ['sh', '-c', 'sleep 120']
         
