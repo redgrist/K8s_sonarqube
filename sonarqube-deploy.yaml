@@ -66,5 +66,5 @@ spec:
       initContainers:
       - name: init-postgres
         image: busybox
-        # command: ['sh', '-c', 'sleep 60']
-        command: ['sh', '-c', "until nslookup sonarqube-db.$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace).svc.cluster.local; do echo en attente de mydb; sleep 2; done"]
+        command: ['sh', '-c', 'sleep 120']
+        # command: ['sh', '-c', "until nslookup sonarqube-db.$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace).svc.cluster.local; do echo en attente de mydb; sleep 2; done"]
