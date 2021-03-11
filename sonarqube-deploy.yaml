@@ -29,7 +29,7 @@ spec:
       containers:
         - name: sonarqube
           image: sonarqube:8.7.0-community
-          command: ['sh', '-c', 'echo app running, waiting for db && sleep 180']
+          command: ['sh', '-c', 'echo app running, waiting for db 180s && sleep 180']
           resources:
             requests:
               memory: "2G"
