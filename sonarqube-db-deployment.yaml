@@ -2,20 +2,20 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: sonarqube
+    app: sonarqube-db
   name: sonarqube-db
   namespace: sonarqube
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: sonarqube
+      app: sonarqube-db
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: sonarqube
+        app: sonarqube-db
     spec:
       tolerations:
       - key: node.kubernetes.io/not-ready
