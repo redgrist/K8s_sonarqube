@@ -45,11 +45,11 @@ spec:
           - name: sonar.search.javaAdditionalOpts
             value: -Dnode.store.allow_mmap=false
           - name: "sonar.jdbc.username"
-            value: "sonar"  #Put your db username
+            value: "postgres"  #Put your db username
           - name: "sonar.jdbc.url"
             value: "jdbc:postgresql://sonarqube-db:5432/sonar" #DB URL
           - name: "sonar.jdbc.password"
-            value: "sonar"
+            value: "postgresr"
             # valueFrom:
             #   secretKeyRef:
             #     name: sonarqube-db-secret

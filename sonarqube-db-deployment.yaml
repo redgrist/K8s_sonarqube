@@ -38,13 +38,13 @@ spec:
             - name: POSTGRES_DB
               value: "sonar"
             - name: POSTGRES_PASSWORD
-              value: "sonar"
+              value: "postgres"
               # valueFrom:
               #   secretKeyRef:
               #     name: sonarqube-db-secret
               #     key: password
             - name: POSTGRES_USER
-              value: "sonar"
+              value: "postgres"
             - name: PGDATA
               value: /var/lib/postgresql/data/sonar
             - name: POSTGRES_HOST_AUTH_METHOD
