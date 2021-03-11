@@ -28,14 +28,9 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: sonarqube
+    app: sonarqube-db
   name: sonarqube-db
   namespace: sonarqube
-  # annotations:
-  #   haproxy.org/check: "true"
-  #   haproxy.org/forwarded-for: "true"
-  #   haproxy.org/load-balance: "roundrobin"
-  #   haproxy.org/cookie-persistence: "mycookie"
 spec:
   selector:
       app: sonarqube-db
