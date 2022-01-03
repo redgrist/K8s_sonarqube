@@ -1,3 +1,4 @@
+---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -5,6 +6,8 @@ metadata:
   namespace: sonarqube
   annotations:
     kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/auth-tls-secret: sonarqube/kubernetes.local
 spec:
   tls:
   - hosts:
