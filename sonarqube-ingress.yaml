@@ -3,7 +3,13 @@ kind: Ingress
 metadata:
   name: sonarqube-ingress
   namespace: sonarqube
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
 spec:
+  tls:
+  - hosts:
+      - "sonarqube.kubernetes.local"
+    secretName: kubernetes.local
   rules:
   - host: sonarqube.kubernetes.local
     http:

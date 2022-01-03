@@ -5,11 +5,11 @@ metadata:
     app: sonarqube
   name: sonarqube
   namespace: sonarqube
-  annotations:
-    haproxy.org/check: "true"
-    haproxy.org/forwarded-for: "true"
-    haproxy.org/load-balance: "roundrobin"
-    haproxy.org/cookie-persistence: "mycookie"
+  # annotations:
+  #   haproxy.org/check: "true"
+  #   haproxy.org/forwarded-for: "true"
+  #   haproxy.org/load-balance: "roundrobin"
+  #   haproxy.org/cookie-persistence: "mycookie"
 spec:
   selector:
       app: sonarqube
