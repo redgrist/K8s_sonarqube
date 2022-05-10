@@ -28,7 +28,7 @@ spec:
         fsGroup: 999
       containers:
         - name: sonarqube
-          image: sonarqube:9.2.4-community
+          image: sonarqube:9.4.0-community
           imagePullPolicy: Always
           resources:
             requests:
